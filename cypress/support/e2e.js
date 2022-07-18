@@ -19,7 +19,5 @@ import './commands'
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 
-beforeEach(() => {
-    cy.log('open page')
-    cy.visit("https://www.pocsports.com/")
-  })
+
+

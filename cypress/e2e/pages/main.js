@@ -7,6 +7,9 @@ class MainPage extends BasePage {
         this.locators = new MainPageLocators();
         if (acceptCookies) {
             this.acceptCookies();
+        } 
+        if (closeForm) {
+            this.closeForm();
         }
     }
 
@@ -16,8 +19,16 @@ class MainPage extends BasePage {
 
     checkCookiesAccepted() {
         return cy
-        .get(this.locators.CookiesBlock)
+        .get(this.locators.cookiesBlock)
         .should('have.css', 'visibility', 'hidden') == true
+    }
+
+    fillForm() {
+
+    }
+
+    closeForm() {
+        //return cy.get(this.locators.closeFormButton).click()
     }
 }
 export default MainPage;

@@ -14,13 +14,11 @@ class MainPage extends BasePage {
     }
 
     acceptCookies() {
-        return cy.get(this.locators.acceptCookiesButton).click()
+        return this.getElement(this.locators.acceptCookiesButton).click()
     }
 
     checkCookiesAccepted() {
-        return cy
-        .get(this.locators.cookiesBlock)
-        .should('have.css', 'visibility', 'hidden') == true
+        return this.getElement(this.locators.cookiesBlock, false) == true
     }
 
     fillForm() {
@@ -28,7 +26,8 @@ class MainPage extends BasePage {
     }
 
     closeForm() {
-        //return cy.get(this.locators.closeFormButton).click()
+        cy.get('body', { timeout: 15000 }).should('have.class', 'box_active_disable_scrolling')
+        return cy.get(this.locators.closeFormButton).click()
     }
 }
 export default MainPage;

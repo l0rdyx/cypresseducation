@@ -1,3 +1,4 @@
+import Form from './pages/elements/form.js'
 import MainPage from './pages/main.js'
 
 // const locURLs = ['https://www.pocsports.com/', 'https://na.pocsports.com/', 'https://au.pocsports.com/'] 
@@ -19,9 +20,18 @@ describe('Test main page', () => {
       cy.visit(locURL)
     })
     
+    /*
     it('init and accept cookies', () => {
       var page = new MainPage(true, true)
       page.checkCookiesAccepted()
     })
+    */
+
+    it('fills form', () => {
+      var page = new MainPage(true, false)
+      page.fillForm()
+    })
+
+
   })
 })

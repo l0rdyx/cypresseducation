@@ -1,5 +1,6 @@
 import BasePage from './base.js'
-import MainPageLocators from '../locators.js';
+import MainPageLocators from '../locators/mp-locators.js';
+import Form from './elements/form.js';
 
 class MainPage extends BasePage {
     constructor(acceptCookies=true, closeForm=true) {
@@ -13,6 +14,8 @@ class MainPage extends BasePage {
         }
     }
     
+
+
     waitPageToBeUnscrollable() {
         cy.get('body', { timeout: 15000 }).should('have.class', 'box_active_disable_scrolling')
     }
@@ -29,7 +32,10 @@ class MainPage extends BasePage {
     }
 
     fillForm() {
-
+        this.waitPageToBeUnscrollable()
+        var iframe = this.getPopUpIframe()
+        var form = new Form(iframe)
+        form.fillName('Ivan')
     }
 
     closeForm() {

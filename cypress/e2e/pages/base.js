@@ -7,5 +7,9 @@ class BasePage {
             return cy.xpath(locator, {timeout: TO}).should('not.be.visible')
         }
     }
+
+    getIframe(locator) {
+        return cy.xpath(locator).its('0.contentDocument.body', { log: false }).should('not.be.empty').then((body) => cy.wrap(body, { log: false }))
+    }
 }
 export default BasePage;

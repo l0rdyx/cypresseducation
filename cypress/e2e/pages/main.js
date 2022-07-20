@@ -12,7 +12,14 @@ class MainPage extends BasePage {
             this.closeForm();
         }
     }
+    
+    waitPageToBeUnscrollable() {
+        cy.get('body', { timeout: 15000 }).should('have.class', 'box_active_disable_scrolling')
+    }
 
+    getPopUpIframe() {
+        return this.getIframe(this.locators.iframeBlock)
+    }
     acceptCookies() {
         return this.getElement(this.locators.acceptCookiesButton).click()
     }
@@ -26,8 +33,8 @@ class MainPage extends BasePage {
     }
 
     closeForm() {
-        cy.get('body', { timeout: 15000 }).should('have.class', 'box_active_disable_scrolling')
-        return cy.get(this.locators.closeFormButton).click()
+        this.waitPageToBeUnscrollable()
+        return this.getPopUpIframe().xpath(this.locators.closeFormButton).click()
     }
 }
 export default MainPage;

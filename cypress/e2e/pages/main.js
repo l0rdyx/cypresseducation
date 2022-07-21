@@ -31,13 +31,21 @@ class MainPage extends BasePage {
         return this.getElement(this.locators.cookiesBlock, false) == true
     }
 
-    fillForm() {
+    fillForm(name='Ivan', email='test@umain.com', gender='Male', location='Sweden', passions=[], acceptTerms=true) {
         this.waitPageToBeUnscrollable()
         var iframe = this.getPopUpIframe()
         var form = new Form(iframe)
-        form.fillName('Ivan')
+        form.fillName(name)
+        form.fillEmail(email)
+        form.chooseGender(gender)
+        form.chooseLocation(location)
+        form.choosePassions(passions)
+        if (acceptTerms) {
+            form.acceptTerms()
+        }
+        form.subscribe()
     }
-
+  
     closeForm() {
         this.waitPageToBeUnscrollable()
         return this.getPopUpIframe().xpath(this.locators.closeFormButton).click()

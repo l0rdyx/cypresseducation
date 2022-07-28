@@ -1,4 +1,3 @@
-import { forEach } from "cypress/types/lodash";
 import FormLocators from "../../locators/form-locators";
 
 class Form {

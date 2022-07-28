@@ -20,12 +20,12 @@ describe('Test main page', () => {
       cy.visit(locURL)
     })
     
-    /*
+    
     it('init and accept cookies', () => {
-      var page = new MainPage(true, true)
+      var page = new MainPage(true, true) // create class object
       page.checkCookiesAccepted()
     })
-    */
+    
 
     it('fills form', () => {
       var page = new MainPage(true, false)

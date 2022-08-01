@@ -8,10 +8,12 @@ class MainPage extends BasePage {
         this.locators = new MainPageLocators();
         if (acceptCookies) {
             this.acceptCookies();
-        } 
+        }
+        /* 
         if (closeForm) {
             this.closeForm();
         }
+        */
     }
     
 
